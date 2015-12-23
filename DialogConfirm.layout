@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><layout title="" view="view">
-  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="84px" prefWidth="400px"/>
+  <AnchorsPane background="#ffffff" cursor="0" name="view" prefHeight="97px" prefWidth="400px"/>
   <Label cursor="0" name="lblMessage" parent="view" prefHeight="30px" prefWidth="380px" text="label">
     <AnchorsPaneConstraints height="30px" left="10px" top="10px" width="380px"/>
   </Label>

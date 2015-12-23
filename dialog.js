@@ -12,7 +12,7 @@ define(['forms', 'ui', 'resource'], function (Forms, Ui, Resource, ModuleName) {
             if (!aForm) {
                 Resource.loadText('./' + aFormName + '.layout', function(formContent) {
                         var form = Forms.readForm(formContent);
-                        form.minimizable = form.resizable = form.maximazable = false;
+                        form.minimizable = form.resizable = form.maximizable = false;
                         form.btnOk.onActionPerformed = function() {
                             form.close(form.tfData ? form.tfData.text : true);
                         };
