@@ -3,7 +3,7 @@
  * @author Алексей
  * @module dialog
  */
-define(['forms', 'ui', 'resource'], function (Forms, Ui, Resource, ModuleName) {
+define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, ModuleName) {
     return new function () {
         var self = this;
         var prompt, alert, confirm;
