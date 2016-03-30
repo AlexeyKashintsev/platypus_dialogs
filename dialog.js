@@ -45,7 +45,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                 }, callback;
                 
                 
-                if (typeof(aParams) != 'function') {
+                if (typeof(aParams) != 'function' && aParams != undefined) {
                     if (aParams.emptyText)
                         params.emptyText = aParams.emptyText;
                     if (aParams.windowCaption)
@@ -64,7 +64,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                 prompt.tfData.emptyText = params.emptyText;
                 prompt.title = params.windowCaption;
                 
-                prompt.showModal(callback);
+                prompt.showModal(callback ? callback : function() {});
             });
             
         };
@@ -76,7 +76,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                     windowCaption: 'Требуется подтверждение'
                 }, callback;
                 
-                if (typeof(aParams) != 'function') {
+                if (typeof(aParams) != 'function' && aParams != undefined) {
                     if (aParams.windowCaption)
                         params.windowCaption = aParams.windowCaption;
                     callback = aCallback;
@@ -87,7 +87,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                 confirm.lblMessage.text = aMessage;
                 confirm.title = params.windowCaption;
                 
-                confirm.showModal(callback);
+                confirm.showModal(callback ? callback : function() {});
             });
         };
         self.alert = function(aMessage, aParams, aCallback) {
@@ -98,7 +98,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                     windowCaption: 'Сообщение'
                 }, callback;
                 
-                if (typeof(aParams) != 'function') {
+                if (typeof(aParams) != 'function' && aParams != undefined) {
                     if (aParams.windowCaption)
                         params.windowCaption = aParams.windowCaption;
                     callback = aCallback;
@@ -111,8 +111,22 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                 
                 alert.lblMessage.text = aMessage;
 
-                alert.showModal(callback);
+                alert.showModal(callback ? callback : function() {});
             });
+        };
+        
+        self.override = function() {
+            window.alert = self.alert;
+            window.confirm = self.confirm;
+            window.prompt = self.prompt;
+        };
+        
+        self.export = function() {
+            if (!window.md)
+                window.md = {};
+            window.md.alert = self.alert;
+            window.md.confirm = self.confirm;
+            window.md.prompt = self.prompt;
         };
     }();
 });
