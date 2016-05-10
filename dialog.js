@@ -13,6 +13,10 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                 Resource.loadText('./' + aFormName + '.layout', function(formContent) {
                         var form = Forms.readForm(formContent);
                         form.minimizable = form.resizable = form.maximizable = false;
+                        form.onWindowActivated = function() {
+                            if (form.tfData)
+                                form.tfData.focus();
+                        };
                         form.btnOk.onActionPerformed = function() {
                             form.close(form.tfData ? form.tfData.text : true);
                         };
