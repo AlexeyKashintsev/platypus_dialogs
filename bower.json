@@ -1,0 +1,26 @@
+{
+  "name": "platypus-dialogs",
+  "main": "Dialog.js",
+  "homepage": "https://github.com/AlexeyKashintsev/platypus_dialogs",
+  "authors": [
+    "Alexey Kashintsev <ak@altsoft.biz>"
+  ],
+  "description": "Simple dialog forms for Platypus.js (alert, confirm, prompt)",
+  "keywords": [
+    "alert",
+    "confirm",
+    "prompt",
+    "modal",
+	"platypus",
+	"platypus.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/modules",
+    "test",
+    "tests"
+  ]
+}
