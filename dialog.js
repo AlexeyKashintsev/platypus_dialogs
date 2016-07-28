@@ -30,6 +30,7 @@ define('dialog', ['forms', 'ui', 'resource'], function (Forms, Ui, Resource, Mod
                         form.btnCancel.onActionPerformed = function() {
                             form.close(false);
                         };
+                        form.view.element.style.zIndex = "10001";
                         aCallback(form);
                 });
             } else {
